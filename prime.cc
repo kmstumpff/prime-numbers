@@ -43,7 +43,6 @@ void printSTDOUT(unsigned int num, vector<bool>& primes) {
 }
 
 void calcPrimes(unsigned int num) {
-    cout << "Setting up...\n";
     vector<bool> primes(num,true);
 #ifdef DEBUG
     cout << "num: " << num << endl;
