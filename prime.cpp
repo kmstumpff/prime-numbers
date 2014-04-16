@@ -5,7 +5,7 @@
 #include <ctime>
 #include <fstream>
 
-//#define DEBUG 0
+#define DEBUG 0
 
 using namespace std;
 
@@ -15,7 +15,7 @@ void printFile(unsigned int num, vector<bool>& primes) {
     if (ofile.is_open()) {
         cout << "File is open!\n";
         int counter = 0;
-        for (int x = 1; x < num; x++) {
+        for (int x = 1; x <= num; x++) {
             if (primes.at(x)) {
                 ofile << x << "\t";
                 counter++;
@@ -31,7 +31,7 @@ void printFile(unsigned int num, vector<bool>& primes) {
 
 void printSTDOUT(unsigned int num, vector<bool>& primes) {
     int counter = 0;
-    for (int x = 1; x < num; x++) {
+    for (int x = 1; x <= num; x++) {
         if (primes.at(x)) {
             cout << x << "\t";
             counter++;
@@ -43,7 +43,7 @@ void printSTDOUT(unsigned int num, vector<bool>& primes) {
 }
 
 void calcPrimes(unsigned int num) {
-    vector<bool> primes(num,true);
+    vector<bool> primes(num+1,true);
 #ifdef DEBUG
     cout << "num: " << num << endl;
 #endif
@@ -58,9 +58,9 @@ void calcPrimes(unsigned int num) {
     start = clock();
 
     cout << "Calculating primes...\n";
-    for (unsigned int i = 2; i < num; i++) {
+    for (unsigned int i = 2; i <= num; i++) {
         for (unsigned int j = i; j <= (num/i); j++) {
-            if ((i*j) < num) {
+            if ((i*j) <= num) {
                 if (primes.at(i*j) == true)
                     numPrimes--;
                 primes.at(i*j) = false;
@@ -73,7 +73,11 @@ void calcPrimes(unsigned int num) {
     duration = ( clock() - start ) / (double) CLOCKS_PER_SEC;
     unsigned int answer;
     cout <<"Finished!\tTime: "<< duration <<'\n';
-    cout << "Prime numbers: " << numPrimes << "\n\n";
+    cout << "Prime numbers: " << numPrimes << "\n";
+    if (primes.at(num))
+      cout << num <<  " is prime\n\n";
+    else
+      cout << num << " is not prime\n\n";
     cout << "Do you want to print the list to a text file?\n";
     cout << "2) Print to file\n";
     cout << "1) print to screen\n";
