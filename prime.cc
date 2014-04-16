@@ -1,10 +1,9 @@
-#include <stdlib.h> // exit, EXIT_FAILURE
-#include <string.h> // string
-#include <iostream> // cout
-#include <vector>   //vectors
+#include <iostream>
+#include <string.h>
+#include <vector>
 #include <cstdio>
-#include <ctime>    // Timer
-#include <fstream>  //file io
+#include <ctime>
+#include <fstream>
 
 //#define DEBUG 0
 
@@ -94,7 +93,7 @@ void calcPrimes(unsigned int num) {
 }
 
 
-int main(int argc, char* argv[]) {
+int main() {
     unsigned int num = 0;
     while (true) {
         cout << "Enter the max number (0 to quit): ";
