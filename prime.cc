@@ -46,10 +46,14 @@ void printSTDOUT(unsigned int num, vector<bool>& primes) {
 void calcPrimes(unsigned int num) {
     cout << "Setting up...\n";
     vector<bool> primes(num,true);
+#ifdef DEBUG
     cout << "num: " << num << endl;
+#endif
     unsigned int numPrimes = num - 2;
     primes.at(1) = false; // 1 is not prime
+#ifdef DEBUG
     cout << "numPrimes: " << numPrimes << endl;
+#endif
     clock_t start;
     double duration;
 
@@ -69,10 +73,9 @@ void calcPrimes(unsigned int num) {
         }
     }
     duration = ( clock() - start ) / (double) CLOCKS_PER_SEC;
-    cout<<"time: "<< duration <<'\n';
     unsigned int answer;
-    cout << "Finished!\n";
-    cout << "Prime numbers: " << numPrimes << "\n";
+    cout <<"Finished!\tTime: "<< duration <<'\n';
+    cout << "Prime numbers: " << numPrimes << "\n\n";
     cout << "Do you want to print the list to a text file?\n";
     cout << "2) Print to file\n";
     cout << "1) print to screen\n";
