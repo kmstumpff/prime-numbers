@@ -5,7 +5,7 @@
 #include <ctime>
 #include <fstream>
 
-#define DEBUG 0
+//#define DEBUG 0
 
 using namespace std;
 
