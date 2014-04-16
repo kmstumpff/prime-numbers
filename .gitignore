@@ -1,0 +1,7 @@
+*.swp
+*.o
+prime
+.DS_STORE
+list_of_primes.txt
+prime-2
+nbproject
