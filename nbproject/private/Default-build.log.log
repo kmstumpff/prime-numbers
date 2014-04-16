@@ -1,0 +1,3 @@
+g++ -O2 -g -std=c++11 -o prime prime.cc
+g++ -O2 -g -std=c++11 -o prime-2 prime-2.cc
+rm -fr *.o *~
