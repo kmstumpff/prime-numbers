@@ -13,7 +13,7 @@ void printFile(unsigned int num, vector<bool>& primes) {
     ofstream ofile;
     ofile.open ("list_of_primes.txt");
     if (ofile.is_open()) {
-        cout << "File is open!\n";
+        cout << "Writing to file...\n";
         int counter = 0;
         for (int x = 1; x <= num; x++) {
             if (primes.at(x)) {
@@ -57,7 +57,8 @@ void calcPrimes(unsigned int num) {
 
     start = clock();
 
-    cout << "Calculating primes...\n";
+    if (num > 10000000)
+      cout << "Calculating primes...\n";
     for (unsigned int i = 2; i <= num; i++) {
         for (unsigned int j = i; j <= (num/i); j++) {
             if ((i*j) <= num) {
@@ -72,15 +73,15 @@ void calcPrimes(unsigned int num) {
     }
     duration = ( clock() - start ) / (double) CLOCKS_PER_SEC;
     unsigned int answer;
-    cout <<"Finished!\tTime: "<< duration <<'\n';
-    cout << "Prime numbers: " << numPrimes << "\n";
+    cout <<"Time: "<< duration << endl;
+    cout << "Prime numbers: " << numPrimes << endl;
     if (primes.at(num))
       cout << num <<  " is prime\n\n";
     else
       cout << num << " is not prime\n\n";
     cout << "Do you want to print the list to a text file?\n";
     cout << "2) Print to file\n";
-    cout << "1) print to screen\n";
+    cout << "1) Print to screen\n";
     cout << "0) Do not print\n";
     cout << "Option: ";
     cin >> answer;
@@ -103,8 +104,10 @@ int main() {
         cin >> num;
         if (num == 0) {
             break;
-        } else {
+        } else if (num > 0) {
             calcPrimes(num);
+        } else {
+          cout << "Invalid answer... Try Again\n\n";
         }
     }
     return 0;
