@@ -47,7 +47,7 @@ void calcPrimes(unsigned int num) {
 #ifdef DEBUG
     cout << "num: " << num << endl;
 #endif
-    unsigned int numPrimes = num - 2;
+    unsigned int numPrimes = num - 1;
     primes.at(1) = false; // 1 is not prime
 #ifdef DEBUG
     cout << "numPrimes: " << numPrimes << endl;
