@@ -55,10 +55,10 @@ void calcPrimes(unsigned int num) {
     clock_t start;
     double duration;
 
+    cout << "Calculating primes...\n";
+	
     start = clock();
 
-    if (num > 10000000)
-      cout << "Calculating primes...\n";
     for (unsigned int i = 2; i <= num; i++) {
         for (unsigned int j = i; j <= (num/i); j++) {
             if ((i*j) <= num) {
