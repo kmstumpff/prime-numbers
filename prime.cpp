@@ -15,10 +15,10 @@ void printFile(unsigned int num, vector<bool>& primes) {
     if (ofile.is_open()) {
         cout << "Writing to file...\n";
         int counter = 0;
-        for (int x = 1; x <= num; x++) {
+        for (int x = 1; x <= num; ++x) {
             if (primes.at(x)) {
                 ofile << x << "\t";
-                counter++;
+                ++counter;
                 if ((counter%10) == 0)
                     ofile << "\n";
             }
@@ -31,10 +31,10 @@ void printFile(unsigned int num, vector<bool>& primes) {
 
 void printSTDOUT(unsigned int num, vector<bool>& primes) {
     int counter = 0;
-    for (int x = 1; x <= num; x++) {
+    for (int x = 1; x <= num; ++x) {
         if (primes.at(x)) {
             cout << x << "\t";
-            counter++;
+            ++counter;
             if ((counter%10) == 0)
                 cout << "\n";
         }
@@ -59,8 +59,8 @@ void calcPrimes(unsigned int num) {
 	
     start = clock();
 
-    for (unsigned int i = 2; i <= num; i++) {
-        for (unsigned int j = i; j <= (num/i); j++) {
+    for (unsigned int i = 2; i <= num; ++i) {
+        for (unsigned int j = i; j <= (num/i); ++j) {
             if ((i*j) <= num) {
                 if (primes.at(i*j) == true)
                     numPrimes--;
